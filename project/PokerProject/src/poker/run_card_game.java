@@ -15,11 +15,13 @@ public class run_card_game {
 	public void test_hand() {
 		eval = new PokerHandEvaluator();
 
+		eval.getDeck();
+		Assert.assertEquals(52, eval.deck.size());
+		
 		Hand<Card> hand = eval.generateHand();
 		Assert.assertEquals(5, hand.getCards().size());
-		Card card = hand.getCards().get(0);
-
-		System.out.println(card.value + " of " + card.suit);
+		
+		
 	}
 
 	@Test
@@ -36,7 +38,8 @@ public class run_card_game {
 
 		hand.setCards(cards);
 
-		eval.evaluateHand(hand);
+		String result = eval.evaluateHand(hand);
+		System.out.println(result);
 	}
 
 	@Test
@@ -53,7 +56,26 @@ public class run_card_game {
 
 		hand.setCards(cards);
 
-		eval.evaluateHand(hand);
+		String result = eval.evaluateHand(hand);
+		System.out.println(result);
+	}
+	
+	@Test
+	public void test_two_pair() {
+		eval = new PokerHandEvaluator();
+
+		Hand<Card> hand = new Hand<Card>();
+		ArrayList<Card> cards = new ArrayList<Card>();
+		cards.add(new Card(0, 1)); // ace
+		cards.add(new Card(1, 1)); // king
+		cards.add(new Card(0, 6)); // queen
+		cards.add(new Card(0, 6)); // jack
+		cards.add(new Card(0, 5)); // 10
+
+		hand.setCards(cards);
+
+		String result = eval.evaluateHand(hand);
+		System.out.println(result);
 	}
 
 	@Test
@@ -70,7 +92,8 @@ public class run_card_game {
 
 		hand.setCards(cards);
 
-		eval.evaluateHand(hand);
+		String result = eval.evaluateHand(hand);
+		System.out.println(result);
 	}
 
 	@Test
@@ -87,8 +110,8 @@ public class run_card_game {
 
 		hand.setCards(cards);
 
-		eval.evaluateHand(hand);
-	}
+		String result = eval.evaluateHand(hand);
+		System.out.println(result);	}
 
 	@Test
 	public void test_four_of_a_kind() {
@@ -104,7 +127,8 @@ public class run_card_game {
 
 		hand.setCards(cards);
 
-		eval.evaluateHand(hand);
+		String result = eval.evaluateHand(hand);
+		System.out.println(result);
 	}
 
 	@Test
@@ -121,7 +145,8 @@ public class run_card_game {
 
 		hand.setCards(cards);
 
-		eval.evaluateHand(hand);
+		String result = eval.evaluateHand(hand);
+		System.out.println(result);
 	}
 
 	@Test
@@ -138,7 +163,8 @@ public class run_card_game {
 
 		hand.setCards(cards);
 
-		eval.evaluateHand(hand);
+		String result = eval.evaluateHand(hand);
+		System.out.println(result);
 	}
 
 	@Test
@@ -155,7 +181,8 @@ public class run_card_game {
 
 		hand.setCards(cards);
 
-		eval.evaluateHand(hand);
+		String result = eval.evaluateHand(hand);
+		System.out.println(result);
 	}
 
 	@Test
@@ -164,7 +191,8 @@ public class run_card_game {
 
 		Hand<Card> hand = eval.generateHand();
 
-		eval.evaluateHand(hand);
+		String result = eval.evaluateHand(hand);
+		System.out.println(result);
 	}
 
 }

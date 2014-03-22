@@ -13,6 +13,6 @@ public class Card {
 	public Suit getSuit() {
 		return Suit.getSuitFromValue(value);
 	}
-
+	
 
 }
